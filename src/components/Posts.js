@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 export default function Posts() {
     const posts = [
@@ -19,12 +19,13 @@ export default function Posts() {
             seguidor: "adorable_animals",
             likes: 298123
         }
-    ]
+    ];
 
     return (
         <div class="posts">
-            {posts.map((p) =>
+            {posts.map((p, indice) =>
                 <Post
+                    key={indice}
                     imgUsuario={p.imgUsuario}
                     usuario={p.usuario}
                     imgPost={p.imgPost}
@@ -32,21 +33,21 @@ export default function Posts() {
                     seguidor={p.seguidor}
                     likes={p.likes} />)}
         </div>
-    )
+    );
 }
 
 function Post(props) {
-    const [corIcone, setCorIcone] = useState("")
-    const [contorno, setContorno] = useState("-outline")
+    const [corIcone, setCorIcone] = useState("");
+    const [contorno, setContorno] = useState("-outline");
 
     function salvar() {
-        setCorIcone("salvo")
-        setContorno("")
+        setCorIcone("salvo");
+        setContorno("");
     }
 
-    const [corDoLike, setCorDoLike] = useState("")
-    const [contornoDoLike, setContornoDoLike] = useState("-outline")
-    const [likes, setLikes] = useState(props.likes)
+    const [corDoLike, setCorDoLike] = useState("");
+    const [contornoDoLike, setContornoDoLike] = useState("-outline");
+    const [likes, setLikes] = useState(props.likes);
 
     function curtir() {
         if (corDoLike === "") {
@@ -57,17 +58,17 @@ function Post(props) {
             setCorDoLike("")
             setContornoDoLike("-outline")
             setLikes(likes - 1)
-        }
+        };
     }
 
-    const [imgPost, setImgPost] = useState(props.imgPost)
+    const [imgPost, setImgPost] = useState(props.imgPost);
 
     function curtirPelaImg() {
         if (corDoLike === "") {
             setCorDoLike("curtido")
             setContornoDoLike("")
             setLikes(likes + 1)
-        }
+        };
     }
 
     return (
@@ -110,5 +111,5 @@ function Post(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

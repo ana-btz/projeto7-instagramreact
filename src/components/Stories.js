@@ -8,28 +8,28 @@ export default function Stories() {
         { imagem: "assets/img/respondeai.svg", usuario: "respondeai" },
         { imagem: "assets/img/filomoderna.svg", usuario: "filomoderna" },
         { imagem: "assets/img/memeriagourmet.svg", usuario: "memeriagourmet" }
-    ]
+    ];
 
     return (
-        <div class="stories">
-            {stories.map((s) => <Story imagem={s.imagem} usuario={s.usuario} />)}
+        <div className="stories">
+            {stories.map((s, indice) => <Story key={indice} imagem={s.imagem} usuario={s.usuario} />)}
             
-            <div class="setinha">
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
-    )
+    );
 }
 
 function Story(props) {
     return (
-        <div class="story">
-            <div class="imagem">
+        <div className="story">
+            <div className="imagem">
                 <img src={props.imagem} />
             </div>
-            <div class="usuario">
+            <div className="usuario">
                 {props.usuario}
             </div>
         </div>
-    )
+    );
 }

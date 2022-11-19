@@ -6,34 +6,34 @@ export default function Sugestoes() {
         { foto: "assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", razao: "Novo no Instagram", seguir: "Seguir" },
         { foto: "assets/img/adorable_animals.svg", nome: "adorable_animals", razao: "Segue você", seguir: "Seguir" },
         { foto: "assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você", seguir: "Seguir" }
-    ]
+    ];
 
     return (
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
             
-            {sugestoes.map((s) => <Sugestao foto={s.foto} nome={s.nome} razao={s.razao} seguir={s.seguir} />)}
+            {sugestoes.map((s, indice) => <Sugestao key={indice} foto={s.foto} nome={s.nome} razao={s.razao} seguir={s.seguir} />)}
 
         </div>
-    )
+    );
 }
 
 function Sugestao(props) {
     
     return (
-        <div class="sugestao">
-            <div class="usuario">
+        <div className="sugestao">
+            <div className="usuario">
                 <img src={props.foto} />
-                <div class="texto">
-                    <div class="nome">{props.nome}</div>
-                    <div class="razao">{props.razao}</div>
+                <div className="texto">
+                    <div className="nome">{props.nome}</div>
+                    <div className="razao">{props.razao}</div>
                 </div>
             </div>
 
-            <div class="seguir">{props.seguir}</div>
+            <div className="seguir">{props.seguir}</div>
         </div>
-    )
+    );
 }

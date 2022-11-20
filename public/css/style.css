@@ -400,11 +400,11 @@ ion-icon {
   margin-left: 5px;
 }
 
-.salvo {
+.fundo .acoes .amarelo ion-icon {
   color: #f6a41e;
 }
 
-.curtido {
+.fundo .acoes .vermelho ion-icon:first-child {
   color: #b43a18;
 }
 

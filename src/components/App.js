@@ -1,5 +1,5 @@
-import NaviBar from "./NaviBar";
 import Corpo from "./Corpo";
+import NaviBar from "./NaviBar";
 
 export default function App() {
     return (

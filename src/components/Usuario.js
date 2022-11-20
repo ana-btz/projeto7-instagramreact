@@ -24,7 +24,7 @@ function ElementoUsuario(props) {
             <div className="texto">
                 <strong>{props.nick}</strong>
                 <span data-test="name">
-                    {nome}
+                    {nome ? nome : props.nome}
                     <ion-icon name="pencil" onClick={alterarNome} data-test="edit-name"></ion-icon>
                 </span>
             </div>

@@ -7,8 +7,8 @@ export default function Posts() {
             usuario: "meowed",
             imgPost: "assets/img/gato-telefone.svg",
             imgSeguidor: "assets/img/respondeai.svg",
-            eguidor: "respondeai",
-            likes: 101523
+            seguidor: "respondeai",
+            likes: 128523
         },
 
         {
@@ -17,7 +17,7 @@ export default function Posts() {
             imgPost: "assets/img/dog.svg",
             imgSeguidor: "assets/img/adorable_animals.svg",
             seguidor: "adorable_animals",
-            likes: 298123
+            likes: 305299
         }
     ]
 
@@ -31,25 +31,27 @@ export default function Posts() {
                     imgPost={p.imgPost}
                     imgSeguidor={p.imgSeguidor}
                     seguidor={p.seguidor}
-                    likes={p.likes} />)}
+                    likes={p.likes}
+                />
+            )}
         </div>
     )
 }
 
 function Post(props) {
-    const [corDoSave, setCorDoSave] = useState("")
-    const [contornoDoSave, setContornoDoSave] = useState("bookmark-outline")
+    const
+        [corDoSave, setCorDoSave] = useState(""),
+        [corDoLike, setCorDoLike] = useState(""),
+        [likes, setLikes] = useState(props.likes),
+        [contornoDoSave, setContornoDoSave] = useState("bookmark-outline"),
+        [contornoDoLike, setContornoDoLike] = useState("heart-outline")
 
     function savePost() {
         setCorDoSave("amarelo")
         setContornoDoSave("bookmark")
     }
 
-    const [likes, setLikes] = useState(props.likes)
-    const [corDoLike, setCorDoLike] = useState("")
-    const [contornoDoLike, setContornoDoLike] = useState("heart-outline")
-
-    function curtir() {
+    function curtirPost() {
         if (corDoLike === "") {
             setCorDoLike("vermelho")
             setContornoDoLike("heart")
@@ -58,7 +60,7 @@ function Post(props) {
             setCorDoLike("")
             setContornoDoLike("heart-outline")
             setLikes(likes - 1)
-        };
+        }
     }
 
     function curtirPelaImg() {
@@ -66,7 +68,7 @@ function Post(props) {
             setCorDoLike("vermelho")
             setContornoDoLike("heart")
             setLikes(likes + 1)
-        };
+        }
     }
 
     return (
@@ -82,7 +84,11 @@ function Post(props) {
             </div>
 
             <div className="conteudo">
-                <img src={props.imgPost} onDoubleClick={curtirPelaImg} data-test="post-image" />
+                <img
+                    src={props.imgPost}
+                    onDoubleClick={curtirPelaImg}
+                    data-test="post-image"
+                />
             </div>
 
             <div className="fundo">
@@ -90,7 +96,7 @@ function Post(props) {
                     <div className={corDoLike}>
                         <ion-icon
                             name={contornoDoLike}
-                            onClick={curtir}
+                            onClick={curtirPost}
                             data-test="liske-post">
                         </ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
@@ -108,10 +114,10 @@ function Post(props) {
                 <div className="curtidas">
                     <img src={props.imgSeguidor} />
                     <div className="texto">
-                        Curtido por <strong>{props.seguidor}</strong> e <strong data-test="like-number">outras {likes} pessoas</strong>
+                        Curtido por <strong>{props.seguidor}</strong> e <strong data-test="like-number"> outras {likes.toLocaleString("pt-BR")} pessoas</strong>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }

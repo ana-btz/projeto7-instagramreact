@@ -1,9 +1,9 @@
-import Corpo from "./Corpo";
-import NaviBar from "./NaviBar";
+import Corpo from "./Corpo"
+import NaviBar from "./NaviBar"
 
 export default function App() {
     return (
-        <div>
+        <>
             <NaviBar />
             <Corpo />
             <div className="fundo-mobile">
@@ -13,6 +13,6 @@ export default function App() {
                 <ion-icon name="heart-outline"></ion-icon>
                 <ion-icon name="person-outline"></ion-icon>
             </div>
-        </div>
-    );
+        </>
+    )
 }

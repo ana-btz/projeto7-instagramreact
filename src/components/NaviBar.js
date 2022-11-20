@@ -32,5 +32,5 @@ export default function NaviBar() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

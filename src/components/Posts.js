@@ -47,8 +47,13 @@ function Post(props) {
         [contornoDoLike, setContornoDoLike] = useState("heart-outline")
 
     function savePost() {
-        setCorDoSave("amarelo")
-        setContornoDoSave("bookmark")
+        if (corDoSave === "") {
+            setCorDoSave("amarelo")
+            setContornoDoSave("bookmark")
+        } else {
+            setCorDoSave("")
+            setContornoDoSave("bookmark-outline")
+        }
     }
 
     function curtirPost() {
@@ -97,7 +102,7 @@ function Post(props) {
                         <ion-icon
                             name={contornoDoLike}
                             onClick={curtirPost}
-                            data-test="liske-post">
+                            data-test="like-post">
                         </ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
@@ -114,7 +119,7 @@ function Post(props) {
                 <div className="curtidas">
                     <img src={props.imgSeguidor} />
                     <div className="texto">
-                        Curtido por <strong>{props.seguidor}</strong> e <strong data-test="like-number"> outras {likes.toLocaleString("pt-BR")} pessoas</strong>
+                        Curtido por <strong>{props.seguidor}</strong> e <strong data-test="likes-number"> outras {likes.toLocaleString("pt-BR")} pessoas</strong>
                     </div>
                 </div>
             </div>

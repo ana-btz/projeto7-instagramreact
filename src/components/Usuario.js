@@ -43,4 +43,4 @@ function ElementoUsuario(props) {
             </div>
         </div>
     )
-} 
+}

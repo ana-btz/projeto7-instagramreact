@@ -40,11 +40,10 @@ export default function Posts() {
 
 function Post(props) {
     const
-        [corDoSave, setCorDoSave] = useState(""),
         [corDoLike, setCorDoLike] = useState(""),
         [likes, setLikes] = useState(props.likes),
-        [contornoDoSave, setContornoDoSave] = useState("bookmark-outline"),
-        [contornoDoLike, setContornoDoLike] = useState("heart-outline")
+        [contornoDoLike, setContornoDoLike] = useState("heart-outline"),
+        [contornoDoSave, setContornoDoSave] = useState("bookmark-outline")
 
     function savePost() {
         if (contornoDoSave === "bookmark-outline") {
@@ -105,7 +104,7 @@ function Post(props) {
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
-                    <div className={corDoSave}>
+                    <div>
                         <ion-icon
                             name={contornoDoSave}
                             onClick={savePost}

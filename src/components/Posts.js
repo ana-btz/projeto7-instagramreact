@@ -47,11 +47,9 @@ function Post(props) {
         [contornoDoLike, setContornoDoLike] = useState("heart-outline")
 
     function savePost() {
-        if (corDoSave === "") {
-            setCorDoSave("amarelo")
+        if (contornoDoSave === "bookmark-outline") {
             setContornoDoSave("bookmark")
         } else {
-            setCorDoSave("")
             setContornoDoSave("bookmark-outline")
         }
     }

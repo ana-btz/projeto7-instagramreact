@@ -1,3 +1,5 @@
+import React, { useState } from "react"
+
 export default function Sugestoes() {
 
     const sugestoes = [
@@ -55,6 +57,8 @@ export default function Sugestoes() {
 }
 
 function Sugestao(props) {
+    const [follow, setFollow] = useState(props.seguir)
+
     return (
         <div className="sugestao">
             <div className="usuario">
@@ -65,7 +69,16 @@ function Sugestao(props) {
                 </div>
             </div>
 
-            <div className="seguir">{props.seguir}</div>
+            <div
+                className="seguir"
+                onClick={() => {
+                    if (follow === "Seguir") {
+                        setFollow("Seguindo")
+                    }
+                }}
+            >
+                {follow}
+            </div>
         </div>
     )
 }

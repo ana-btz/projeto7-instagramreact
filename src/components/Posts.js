@@ -40,16 +40,18 @@ export default function Posts() {
 
 function Post(props) {
     const
+        outline = "bookmark-outline",
+        filled = "bookmark",
         [corDoLike, setCorDoLike] = useState(""),
         [likes, setLikes] = useState(props.likes),
         [contornoDoLike, setContornoDoLike] = useState("heart-outline"),
-        [contornoDoSave, setContornoDoSave] = useState("bookmark-outline")
+        [contornoDoSave, setContornoDoSave] = useState(outline)
 
     function savePost() {
-        if (contornoDoSave === "bookmark-outline") {
-            setContornoDoSave("bookmark")
+        if (contornoDoSave === outline) {
+            setContornoDoSave(filled)
         } else {
-            setContornoDoSave("bookmark-outline")
+            setContornoDoSave(outline)
         }
     }
 
@@ -64,17 +66,31 @@ function Post(props) {
             setLikes(likes - 1)
         }
     }
+    
+    const [animacao, setAnimacao] = useState("escondido")
 
     function curtirPelaImg() {
+
         if (corDoLike === "") {
             setCorDoLike("vermelho")
             setContornoDoLike("heart")
             setLikes(likes + 1)
         }
+
+        setAnimacao("grande")
+
+        setTimeout(desaparecer, 500)
+    }
+
+    function desaparecer() {
+        setAnimacao("escondido")
     }
 
     return (
         <div className="post" data-test="post">
+            <div className={"coracao " + animacao} >
+                <ion-icon name="heart"></ion-icon>
+            </div>
             <div className="topo">
                 <div className="usuario">
                     <img src={props.imgUsuario} />
